@@ -143,11 +143,12 @@ export function ScrollBootSequence() {
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
             {t("role")}
           </div>
-          <h1 className="text-5xl md:text-8xl lg:text-[7rem] tracking-tighter leading-[0.9] text-white font-medium mb-6">
-            {t("title").split(" ").map((word: string, i: number) => (
-              <span key={i} className="block">{word}</span>
-            ))}
+          <h1 className="text-5xl md:text-8xl lg:text-[7rem] tracking-tighter leading-[0.9] text-white font-medium mb-2">
+            {t("title")}
           </h1>
+          <span className="block text-2xl md:text-4xl lg:text-5xl tracking-tight text-slate-400 font-medium mb-6">
+            {t("heroRole")}
+          </span>
           <p className="text-lg md:text-xl text-slate-400 max-w-[40ch] leading-relaxed">
             {t("subtitle")}
           </p>

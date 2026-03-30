@@ -1,6 +1,7 @@
 {
   "Hero": {
     "title": "Erik Elias",
+    "heroRole": "Front-end Dev.",
     "subtitle": "Engenheiro Front-End construindo experiências digitais com Next.js",
     "role": "Anterior: Front-end na i9-systemas (Jul 2025 - Fev 2026)",
     "cta": "Explorar Projetos"
@@ -20,7 +21,7 @@
   "Skills": {
     "title": "> system_info --tools",
     "subtitle": "Extraindo lista de dependências fundamentais... [DONE]",
-    "frontend": "Next.js, TypeScript, JavaScript, Tailwind, React, React Native",
+    "frontend": "Next.js, TypeScript, JavaScript, Tailwind, React, React Native, Swift",
     "backend": "Java, Spring Boot, Docker"
   },
   "Projects": {
