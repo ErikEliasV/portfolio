@@ -2,7 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
-import { SiReact, SiNextdotjs, SiTailwindcss, SiTypescript, SiJavascript, SiSpringboot, SiDocker } from "react-icons/si";
+import { SiReact, SiNextdotjs, SiTailwindcss, SiTypescript, SiJavascript, SiSpringboot, SiDocker, SiSwift } from "react-icons/si";
 import { FaJava } from "react-icons/fa";
 
 export function PerpetualBento() {
@@ -22,6 +22,7 @@ export function PerpetualBento() {
     if (name.includes("spring")) return <SiSpringboot className="text-[#6DB33F]" />;
     if (name.includes("docker")) return <SiDocker className="text-[#2496ED]" />;
     if (name.includes("java")) return <FaJava className="text-[#007396]" />;
+    if (name.includes("swift")) return <SiSwift className="text-[#F05138]" />;
     return <span className="text-emerald-500">{"$"}</span>;
   };
 
