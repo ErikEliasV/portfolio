@@ -1,0 +1,36 @@
+{
+  "Hero": {
+    "title": "Erik Elias",
+    "subtitle": "Engenheiro Front-End construindo experiências digitais com Next.js",
+    "role": "Anterior: Front-end na i9-systemas (Jul 2025 - Fev 2026)",
+    "cta": "Explorar Projetos"
+  },
+  "Experience": {
+    "title": "> whoami --history",
+    "subtitle": "Carregando histórico do servidor local... [OK]",
+    "i9_role": "Desenvolvedor Front-end",
+    "i9_company": "i9-systemas",
+    "i9_date": "Jul 2025 — Fev 2026",
+    "i9_desc": "Engenharia de interfaces escaláveis utilizando Next.js, arquitetando soluções premium com performance e tipagem forte.",
+    "senac_role": "Estagiário de Desenvolvimento",
+    "senac_company": "Senac Labs Mossoró",
+    "senac_date": "Fev 2025 — Jul 2025",
+    "senac_desc": "Desenvolvimento ágil no ecossistema React e React Native, criando UIs dinâmicas para web e mobile."
+  },
+  "Skills": {
+    "title": "> system_info --tools",
+    "subtitle": "Extraindo lista de dependências fundamentais... [DONE]",
+    "frontend": "Next.js, TypeScript, JavaScript, Tailwind, React, React Native",
+    "backend": "Java, Spring Boot, Docker"
+  },
+  "Projects": {
+    "title": "> ls ~/projects --showcase",
+    "bmw_title": "BMW Concept Website",
+    "bmw_desc": "Este projeto nasceu da minha vontade de explorar e praticar o Scrollytelling — uma técnica que utiliza o scroll para conduzir animações cinematográficas e contar histórias na web. Para dar vida a esse conceito, escolhi o BMW X6 M Competition como tema, usando o design e a potência do carro como tela perfeita para criar uma experiência imersiva e visualmente impactante. O resultado é uma landing page premium onde cada scroll revela um novo detalhe do veículo, do seu exterior agressivo até o seu motor de alta performance.",
+    "view_project": "Ver Projeto",
+    "back": "Voltar ao Portfólio",
+    "tech_stack": "Tech Stack",
+    "gallery": "Galeria",
+    "screenshots": "Capturas de Tela"
+  }
+}
