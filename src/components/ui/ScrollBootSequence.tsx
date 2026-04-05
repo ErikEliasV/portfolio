@@ -66,9 +66,9 @@ export function ScrollBootSequence() {
   const desktopBottom = "30vh";
   const desktopLeft = "55vw";
 
-  const mobileTop = "60vh";
+  const mobileTop = "50vh";
   const mobileRight = "6vw";
-  const mobileBottom = "10vh";
+  const mobileBottom = "6vh";
   const mobileLeft = "6vw";
 
   // Expand
@@ -137,7 +137,7 @@ export function ScrollBootSequence() {
         {/* Hero Content */}
         <motion.div
           style={mounted ? { opacity: heroOpacity, y: heroY } : { opacity: 1, y: 0 }}
-          className="absolute top-0 left-0 w-full md:w-[55%] h-full flex flex-col justify-center px-8 md:pl-24 lg:pl-32 xl:pl-40 pr-8 z-10"
+          className="absolute top-0 left-0 w-full md:w-[55%] h-full flex flex-col justify-start pt-28 md:justify-center md:pt-0 px-8 md:pl-24 lg:pl-32 xl:pl-40 pr-8 z-10"
         >
           <div className="flex items-center gap-3 text-xs font-geist-mono text-slate-400 uppercase tracking-widest mb-6">
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
