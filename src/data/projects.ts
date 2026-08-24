@@ -11,6 +11,25 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    slug: "kiresaile-website",
+    titleKey: "kiresaile_title",
+    descKey: "kiresaile_desc",
+    thumbnail: "/screenshot/KIRESAILE_website/hero.png",
+    screenshots: [
+      "/screenshot/KIRESAILE_website/hero.png",
+      "/screenshot/KIRESAILE_website/fabric-shader.png",
+      "/screenshot/KIRESAILE_website/collection-wall.png",
+      "/screenshot/KIRESAILE_website/brand-story.png",
+      "/screenshot/KIRESAILE_website/collection-page.png",
+      "/screenshot/KIRESAILE_website/product-page.png",
+      "/screenshot/KIRESAILE_website/cart-drawer.png",
+      "/screenshot/KIRESAILE_website/footer.png",
+    ],
+    tech: ["Next.js 16", "TypeScript", "Tailwind CSS 4", "WebGL / GLSL"],
+    github: "https://github.com/ErikEliasV/KIRESAILE",
+    live: "https://erikeliasv.github.io/KIRESAILE/",
+  },
+  {
     slug: "bmw-website",
     titleKey: "bmw_title",
     descKey: "bmw_desc",

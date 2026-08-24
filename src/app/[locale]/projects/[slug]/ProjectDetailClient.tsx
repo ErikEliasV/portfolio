@@ -123,12 +123,12 @@ export function ProjectDetailClient({ project }: { project: Project }) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ delay: i * 0.05, type: "spring", stiffness: 100, damping: 20 }}
-                className="relative w-full rounded-xl overflow-hidden border border-white/10 bg-zinc-900"
+                className="relative w-full flex justify-center rounded-xl overflow-hidden border border-white/10 bg-zinc-900"
               >
                 <img
                   src={`${basePath}${src}`}
                   alt={`${t(project.titleKey)} screenshot ${i + 1}`}
-                  className="w-full h-auto"
+                  className="w-auto max-w-full h-auto max-h-[85vh] object-contain"
                   loading="lazy"
                 />
               </motion.div>

@@ -2,15 +2,40 @@
 
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
-import { SiReact, SiNextdotjs, SiTailwindcss, SiTypescript, SiJavascript, SiSpringboot, SiDocker, SiSwift } from "react-icons/si";
+import {
+  SiReact,
+  SiNextdotjs,
+  SiTailwindcss,
+  SiTypescript,
+  SiJavascript,
+  SiSpringboot,
+  SiDocker,
+  SiNodedotjs,
+  SiExpress,
+  SiPrisma,
+  SiDjango,
+  SiPostgresql,
+  SiHtml5,
+  SiCss,
+  SiStyledcomponents,
+  SiGit,
+  SiGithub,
+  SiZod,
+  SiPython,
+  SiClaude,
+} from "react-icons/si";
 import { FaJava } from "react-icons/fa";
 
 export function PerpetualBento() {
   const tExp = useTranslations("Experience");
   const tSkills = useTranslations("Skills");
 
+  const tEdu = useTranslations("Education");
+
   const frontendSkills = tSkills("frontend").split(", ");
   const backendSkills = tSkills("backend").split(", ");
+  const toolsSkills = tSkills("tools").split(", ");
+  const certifications = tEdu("certs").split(", ");
 
   const getIcon = (skillName: string) => {
     const name = skillName.toLowerCase();
@@ -19,10 +44,23 @@ export function PerpetualBento() {
     if (name.includes("tailwind")) return <SiTailwindcss className="text-[#06B6D4]" />;
     if (name.includes("typescript")) return <SiTypescript className="text-[#3178C6]" />;
     if (name.includes("javascript")) return <SiJavascript className="text-[#F7DF1E]" />;
+    if (name.includes("styled")) return <SiStyledcomponents className="text-[#DB7093]" />;
+    if (name.includes("context")) return <SiReact className="text-[#61DAFB]" />;
+    if (name.includes("html")) return <SiHtml5 className="text-[#E34F26]" />;
+    if (name.includes("css")) return <SiCss className="text-[#663399]" />;
+    if (name.includes("node")) return <SiNodedotjs className="text-[#5FA04E]" />;
+    if (name.includes("express")) return <SiExpress className="text-white" />;
+    if (name.includes("prisma")) return <SiPrisma className="text-[#2D3748]" />;
+    if (name.includes("django")) return <SiDjango className="text-[#092E20]" />;
+    if (name.includes("postgres")) return <SiPostgresql className="text-[#4169E1]" />;
     if (name.includes("spring")) return <SiSpringboot className="text-[#6DB33F]" />;
-    if (name.includes("docker")) return <SiDocker className="text-[#2496ED]" />;
+    if (name.includes("python")) return <SiPython className="text-[#3776AB]" />;
     if (name.includes("java")) return <FaJava className="text-[#007396]" />;
-    if (name.includes("swift")) return <SiSwift className="text-[#F05138]" />;
+    if (name.includes("docker")) return <SiDocker className="text-[#2496ED]" />;
+    if (name.includes("github")) return <SiGithub className="text-white" />;
+    if (name.includes("git")) return <SiGit className="text-[#F05032]" />;
+    if (name.includes("zod")) return <SiZod className="text-[#3E67B1]" />;
+    if (name.includes("claude") || name.includes("anthropic")) return <SiClaude className="text-[#D97757]" />;
     return <span className="text-emerald-500">{"$"}</span>;
   };
 
@@ -71,6 +109,20 @@ export function PerpetualBento() {
             </h3>
             <p className="text-slate-400 mt-3 leading-relaxed max-w-[55ch]">
               {tExp("senac_desc")}
+            </p>
+          </div>
+
+          {/* Node 3: Claro (AeC) */}
+          <div className="relative group">
+            <div className="absolute -left-[37px] top-1 w-3 h-3 bg-zinc-950 border border-white/20 rounded-full group-hover:scale-150 group-hover:border-emerald-500 transition-transform duration-500 ease-out" />
+            <span className="font-geist-mono text-xs text-slate-600 tracking-wider uppercase">
+              {`[ ${tExp("claro_date")} ]`}
+            </span>
+            <h3 className="text-xl text-white font-medium tracking-tight mt-2">
+              {tExp("claro_role")} • <span className="text-slate-400">{tExp("claro_company")}</span>
+            </h3>
+            <p className="text-slate-400 mt-3 leading-relaxed max-w-[55ch]">
+              {tExp("claro_desc")}
             </p>
           </div>
         </div>
@@ -129,6 +181,66 @@ export function PerpetualBento() {
                 </motion.span>
               ))}
             </div>
+          </div>
+
+          <div>
+            <span className="font-geist-mono text-xs text-slate-600 uppercase tracking-widest mb-4 block mt-4">
+              -- Tools / AI --
+            </span>
+            <div className="flex flex-wrap gap-2">
+              {toolsSkills.map((skill) => (
+                <motion.span
+                  key={skill}
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  className="flex items-center gap-2 px-3 py-1.5 bg-[#09090b] border border-white/5 rounded-lg text-sm text-slate-300 cursor-default hover:border-emerald-500/50 hover:bg-emerald-500/10 transition-colors"
+                >
+                  {getIcon(skill)}
+                  {skill}
+                </motion.span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </motion.div>
+      {/* Education Section */}
+      <motion.div
+        id="education"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ type: "spring", stiffness: 100, damping: 20, delay: 0.1 }}
+        className="flex flex-col scroll-mt-32"
+      >
+        {/* Terminal Input Header */}
+        <div className="flex items-center gap-2 mb-8 font-geist-mono text-sm md:text-base selection:bg-emerald-500/30">
+          <span className="text-emerald-400">erik@local</span>
+          <span className="text-teal-400">~/portfolio</span>
+          <span className="text-slate-500">$</span>
+          <h2 className="text-slate-200 ml-1">{tEdu("title").replace("> ", "")}</h2>
+        </div>
+
+        <div className="flex flex-col gap-8 pl-4 md:pl-8 border-l border-white/5 ml-[5px]">
+          <div>
+            <span className="font-geist-mono text-xs text-emerald-400 tracking-wider uppercase drop-shadow-[0_0_8px_rgba(16,185,129,0.3)]">
+              {`[ ${tEdu("date")} ]`}
+            </span>
+            <h3 className="text-xl text-white font-medium tracking-tight mt-2">
+              {tEdu("course")} • <span className="text-slate-400">{tEdu("institution")}</span>
+            </h3>
+          </div>
+
+          <div>
+            <span className="font-geist-mono text-xs text-slate-600 uppercase tracking-widest mb-4 block">
+              -- {tEdu("certs_label")} --
+            </span>
+            <ul className="flex flex-col gap-1.5">
+              {certifications.map((cert) => (
+                <li key={cert} className="flex items-start gap-2 text-sm text-slate-400 leading-relaxed">
+                  <span className="text-emerald-500/70 font-geist-mono shrink-0">✔</span>
+                  <span>{cert}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </motion.div>

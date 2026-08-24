@@ -1,31 +1,46 @@
 {
   "Hero": {
     "title": "Erik Elias",
-    "heroRole": "Front-end Dev.",
-    "subtitle": "Front-End Engineer building digital experiences with Next.js",
-    "role": "Prev: Front-end at i9-systemas (Jul 2025 - Feb 2026)",
+    "heroRole": "Full Stack Dev.",
+    "subtitle": "Full Stack Developer building digital experiences with Next.js and TypeScript",
+    "role": "Prev: Full Stack at i9systemas (Jul 2025 - Feb 2026)",
     "cta": "Explore Projects"
   },
   "Experience": {
     "title": "> whoami --history",
     "subtitle": "Loading professional history from local server... [OK]",
-    "i9_role": "Front-end Developer",
-    "i9_company": "i9-systemas",
+    "i9_role": "Full Stack Developer",
+    "i9_company": "i9systemas (Startup)",
     "i9_date": "Jul 2025 — Feb 2026",
-    "i9_desc": "Engineered scalable interfaces using Next.js, architecting premium solutions with strong typing and high performance.",
-    "senac_role": "Software Development Intern",
-    "senac_company": "Senac Labs Mossoró",
-    "senac_date": "Feb 2025 — Jul 2025",
-    "senac_desc": "Agile development within the React and React Native ecosystem, creating dynamic UIs for web and mobile."
+    "i9_desc": "Part of the team that built a management system for the civil construction sector from scratch, covering projects, companies and employees. I developed the front-end with Next.js and TypeScript, using Context API for global state and Zod for data and form validation, plus Git/GitHub for versioning and team collaboration.",
+    "senac_role": "Full Stack Intern",
+    "senac_company": "Senac — Senac Labs Project",
+    "senac_date": "Apr 2025 — Jul 2025",
+    "senac_desc": "Part of the team behind a mobile app for the Mossoró Union, built to streamline internal processes and communication with members. I worked on the front-end with React Native and TypeScript, focused on responsive and intuitive interfaces, and collaborated on the API with Express and Prisma.",
+    "claro_role": "Customer Support Agent",
+    "claro_company": "Claro (AeC)",
+    "claro_date": "Jul 2024 — Nov 2024",
+    "claro_desc": "Worked at the Customer Relationship Center handling Claro's financial support, resolving questions around invoices, payments and services — where I sharpened communication and problem-solving under pressure."
+  },
+  "Education": {
+    "title": "> cat education.txt",
+    "course": "Computer Science",
+    "institution": "UNP — Mossoró/RN",
+    "date": "Jun 2023 — Present",
+    "certs_label": "Courses & Certifications",
+    "certs": "TypeScript Track — Alura (in progress), Docker & Docker Compose — Alura (in progress), Java & Spring Boot Track — Alura (in progress), Systems Developer — Senac (completed), Web Developer — Senac, APIs with Node.js and Express — Alura, React with TailwindCSS — Alura"
   },
   "Skills": {
     "title": "> system_info --tools",
     "subtitle": "Extracting core dependency lists... [DONE]",
-    "frontend": "Next.js, TypeScript, JavaScript, Tailwind, React, React Native, Swift",
-    "backend": "Java, Spring Boot, Docker"
+    "frontend": "Next.js, React, React Native, TypeScript, JavaScript, Tailwind CSS, Styled Components, Context API, HTML, CSS",
+    "backend": "Node.js, Express, Prisma, Django, Spring Boot, Java, Python, PostgreSQL",
+    "tools": "Docker, Docker Compose, Git, GitHub, Zod, Claude (Anthropic)"
   },
   "Projects": {
     "title": "> ls ~/projects --showcase",
+    "kiresaile_title": "KIRESAILE E-commerce",
+    "kiresaile_desc": "An e-commerce landing page built with Next.js 16, TypeScript and Tailwind CSS 4, presenting KIRESAILE — a fictional women's fashion brand created for this portfolio project. The centerpiece is a fabric video processed in real time by a WebGL fragment shader, which distorts and animates the textile directly on the GPU. It also features a fully functional shopping cart and an editorial design in black, white and electric blue.",
     "bmw_title": "BMW Concept Website",
     "bmw_desc": "This project was born from my desire to explore and practice Scrollytelling — a technique that uses scrolling to drive cinematic animations and tell stories on the web. To bring this concept to life, I chose the BMW X6 M Competition as the theme, using the car's design and power as the perfect canvas to create an immersive and visually striking experience. The result is a premium landing page where each scroll reveals a new detail of the vehicle, from its aggressive exterior to its high-performance engine.",
     "view_project": "View Project",
