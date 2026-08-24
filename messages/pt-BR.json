@@ -1,31 +1,46 @@
 {
   "Hero": {
     "title": "Erik Elias",
-    "heroRole": "Front-end Dev.",
-    "subtitle": "Engenheiro Front-End construindo experiências digitais com Next.js",
-    "role": "Anterior: Front-end na i9-systemas (Jul 2025 - Fev 2026)",
+    "heroRole": "Full Stack Dev.",
+    "subtitle": "Desenvolvedor Full Stack construindo experiências digitais com Next.js e TypeScript",
+    "role": "Anterior: Full Stack na i9systemas (Jul 2025 - Fev 2026)",
     "cta": "Explorar Projetos"
   },
   "Experience": {
     "title": "> whoami --history",
     "subtitle": "Carregando histórico do servidor local... [OK]",
-    "i9_role": "Desenvolvedor Front-end",
-    "i9_company": "i9-systemas",
+    "i9_role": "Desenvolvedor Full Stack",
+    "i9_company": "i9systemas (Startup)",
     "i9_date": "Jul 2025 — Fev 2026",
-    "i9_desc": "Engenharia de interfaces escaláveis utilizando Next.js, arquitetando soluções premium com performance e tipagem forte.",
-    "senac_role": "Estagiário de Desenvolvimento",
-    "senac_company": "Senac Labs Mossoró",
-    "senac_date": "Fev 2025 — Jul 2025",
-    "senac_desc": "Desenvolvimento ágil no ecossistema React e React Native, criando UIs dinâmicas para web e mobile."
+    "i9_desc": "Integrei a equipe de desenvolvimento de um sistema de gestão para o setor de construção civil, construído do zero, abrangendo o gerenciamento de obras, empresas e funcionários. Desenvolvi o front-end com Next.js e TypeScript, utilizando Context API para estado global e Zod para validação de dados e formulários, além de Git e GitHub para versionamento e colaboração em equipe.",
+    "senac_role": "Estagiário Full Stack",
+    "senac_company": "Senac — Projeto Senac Labs",
+    "senac_date": "Abr 2025 — Jul 2025",
+    "senac_desc": "Integrei a equipe responsável pelo desenvolvimento de um aplicativo mobile para o Sindicato de Mossoró, com o objetivo de otimizar processos internos e a comunicação com os associados. Atuei na construção do front-end com React Native e TypeScript, focando em interfaces responsivas e intuitivas, e colaborei no desenvolvimento da API com Express e Prisma.",
+    "claro_role": "Atendente",
+    "claro_company": "Claro (AeC)",
+    "claro_date": "Jul 2024 — Nov 2024",
+    "claro_desc": "Atuei no CRC (Central de Relacionamento com o Cliente), prestando suporte na área financeira da Claro e solucionando demandas relacionadas a faturas, pagamentos e serviços — onde desenvolvi comunicação clara e resolução de problemas sob pressão."
+  },
+  "Education": {
+    "title": "> cat education.txt",
+    "course": "Ciências da Computação",
+    "institution": "UNP — Mossoró/RN",
+    "date": "Jun 2023 — Atual",
+    "certs_label": "Cursos e Certificações",
+    "certs": "Formação TypeScript — Alura (em andamento), Docker e Docker Compose — Alura (em andamento), Formação Java e Spring Boot — Alura (em andamento), Desenvolvedor de Sistemas — Senac (concluído), Desenvolvedor Web — Senac, APIs com Node.js e Express — Alura, React com TailwindCSS — Alura"
   },
   "Skills": {
     "title": "> system_info --tools",
     "subtitle": "Extraindo lista de dependências fundamentais... [DONE]",
-    "frontend": "Next.js, TypeScript, JavaScript, Tailwind, React, React Native, Swift",
-    "backend": "Java, Spring Boot, Docker"
+    "frontend": "Next.js, React, React Native, TypeScript, JavaScript, Tailwind CSS, Styled Components, Context API, HTML, CSS",
+    "backend": "Node.js, Express, Prisma, Django, Spring Boot, Java, Python, PostgreSQL",
+    "tools": "Docker, Docker Compose, Git, GitHub, Zod, Claude (Anthropic)"
   },
   "Projects": {
     "title": "> ls ~/projects --showcase",
+    "kiresaile_title": "KIRESAILE E-commerce",
+    "kiresaile_desc": "Uma landing page de e-commerce desenvolvida com Next.js 16, TypeScript e Tailwind CSS 4, apresentando a KIRESAILE — uma marca de moda feminina fictícia criada para este projeto de portfólio. O destaque é um vídeo de tecido processado em tempo real por um fragment shader WebGL, que distorce e anima o tecido diretamente na GPU. O projeto também conta com carrinho de compras funcional e design editorial em preto, branco e azul elétrico.",
     "bmw_title": "BMW Concept Website",
     "bmw_desc": "Este projeto nasceu da minha vontade de explorar e praticar o Scrollytelling — uma técnica que utiliza o scroll para conduzir animações cinematográficas e contar histórias na web. Para dar vida a esse conceito, escolhi o BMW X6 M Competition como tema, usando o design e a potência do carro como tela perfeita para criar uma experiência imersiva e visualmente impactante. O resultado é uma landing page premium onde cada scroll revela um novo detalhe do veículo, do seu exterior agressivo até o seu motor de alta performance.",
     "view_project": "Ver Projeto",

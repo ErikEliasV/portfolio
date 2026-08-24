@@ -106,6 +106,37 @@ export function ScrollBootSequence() {
     });
   };
 
+  /**
+   * Converte a posição real de uma seção dentro do buffer do terminal em um
+   * scroll absoluto da página. Como `contentYOffset` mapeia o progresso
+   * [0.35, 1] para [0, -scrollRange], a seção fica no topo do buffer quando
+   * o offset vale -(distância da seção até o topo do conteúdo).
+   * Assim os atalhos continuam certos mesmo quando o conteúdo cresce.
+   */
+  const scrollToSection = (id: string, fallbackPercent: number) => {
+    if (typeof window === "undefined") return;
+    const el = document.getElementById(id);
+    const content = contentRef.current;
+    const container = containerRef.current;
+
+    if (!el || !content || !container || scrollRange <= 0) {
+      scrollToPercent(fallbackPercent);
+      return;
+    }
+
+    // Distância real da seção até o topo do buffer (imune ao transform aplicado).
+    const offsetTop =
+      el.getBoundingClientRect().top - content.getBoundingClientRect().top - 80;
+    const progress = 0.35 + 0.65 * (offsetTop / scrollRange);
+    const clamped = Math.min(Math.max(progress, 0), 1);
+    const scrollable = container.offsetHeight - window.innerHeight;
+
+    window.scrollTo({
+      top: container.offsetTop + scrollable * clamped,
+      behavior: "smooth",
+    });
+  };
+
   return (
     // 1000vh creates a massive canvas. 35% is reserved for the spectacular boot.
     // 65% is purely dedicated to sliding the portfolio content through the terminal window!
@@ -117,19 +148,23 @@ export function ScrollBootSequence() {
           style={mounted ? { opacity: heroOpacity } : { opacity: 1 }}
           className="absolute bottom-10 left-6 md:left-auto md:right-10 z-50 flex flex-wrap md:flex-row items-center gap-4 px-6 py-3 rounded-full bg-white/5 border border-white/10 text-white text-xs font-geist-mono uppercase tracking-widest glass-panel"
         >
-          <button onClick={() => scrollToPercent(0.48)} className="hover:text-emerald-400 transition-colors flex items-center gap-2">
+          <button onClick={() => scrollToSection("experience", 0.45)} className="hover:text-emerald-400 transition-colors flex items-center gap-2">
             <span className="text-emerald-500">{">"}</span> whoami
           </button>
           <span className="hidden md:block opacity-20">|</span>
-          <button onClick={() => scrollToPercent(0.55)} className="hover:text-emerald-400 transition-colors flex items-center gap-2">
+          <button onClick={() => scrollToSection("skills", 0.55)} className="hover:text-emerald-400 transition-colors flex items-center gap-2">
             <span className="text-emerald-500">{">"}</span> system_info
           </button>
           <span className="hidden md:block opacity-20">|</span>
-          <button onClick={() => scrollToPercent(0.7)} className="hover:text-emerald-400 transition-colors flex items-center gap-2">
+          <button onClick={() => scrollToSection("education", 0.65)} className="hover:text-emerald-400 transition-colors flex items-center gap-2">
+            <span className="text-emerald-500">{">"}</span> education
+          </button>
+          <span className="hidden md:block opacity-20">|</span>
+          <button onClick={() => scrollToSection("projects", 0.78)} className="hover:text-emerald-400 transition-colors flex items-center gap-2">
             <span className="text-emerald-500">{">"}</span> projects
           </button>
           <span className="hidden md:block opacity-20">|</span>
-          <button onClick={() => scrollToPercent(0.88)} className="hover:text-emerald-400 transition-colors flex items-center gap-2">
+          <button onClick={() => scrollToSection("contact", 0.92)} className="hover:text-emerald-400 transition-colors flex items-center gap-2">
             <span className="text-emerald-500">{">"}</span> contact
           </button>
         </motion.div>
@@ -239,8 +274,8 @@ export function ScrollBootSequence() {
 
               <motion.div style={mounted ? { opacity: line6Op } : { opacity: 0 }} className="text-slate-400 space-y-0.5 mt-1 mb-2">
                 <div className="text-emerald-500/80 font-bold mb-1">Installing dependencies...</div>
-                <div className="flex items-center gap-2"><span className="text-emerald-500">✔</span> react@18.2</div>
-                <div className="flex items-center gap-2"><span className="text-emerald-500">✔</span> next@15.0</div>
+                <div className="flex items-center gap-2"><span className="text-emerald-500">✔</span> react@19.2</div>
+                <div className="flex items-center gap-2"><span className="text-emerald-500">✔</span> next@16.2</div>
                 <div className="flex items-center gap-2"><span className="text-emerald-500">✔</span> framer-motion</div>
               </motion.div>
 
@@ -255,7 +290,7 @@ export function ScrollBootSequence() {
 
               <motion.div style={mounted ? { opacity: line8Op } : { opacity: 0 }} className="text-white mt-4 font-bold flex flex-col gap-1 mb-32">
                 <div className="flex items-center gap-2">
-                  <span className="text-white">▲</span> Next.js 15.0.0
+                  <span className="text-white">▲</span> Next.js 16.2.1
                 </div>
                 <div className="text-emerald-400 font-normal mt-1">
                   - Local: <span className="text-white ml-6 underline decoration-white/30 hover:decoration-white cursor-pointer transition-all">http://localhost:3000</span>
