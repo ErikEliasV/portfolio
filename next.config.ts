@@ -3,13 +3,15 @@ import createNextIntlPlugin from 'next-intl/plugin';
 
 const withNextIntl = createNextIntlPlugin();
 
-const isProd = process.env.NODE_ENV === "production";
-
 const nextConfig: NextConfig = {
   output: "export",
-  basePath: isProd ? "/portfolio" : "",
+  basePath: "/portfolio",
   images: {
     unoptimized: true,
+  },
+  // 404 própria para endereços sem rota (o layout raiz é o [locale], dinâmico)
+  experimental: {
+    globalNotFound: true,
   },
 };
 
