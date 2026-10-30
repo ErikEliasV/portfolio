@@ -15,6 +15,10 @@ export function generateStaticParams() {
   return [{ locale: 'en' }, { locale: 'pt-BR' }];
 }
 
+// A prévia do link (og:image) precisa de endereço absoluto
+const SITE_URL = "https://erikeliasv.github.io";
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 export async function generateMetadata({
   params,
 }: {
@@ -22,7 +26,23 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "Metadata" });
-  return { title: t("title"), description: t("description") };
+  const title = t("title");
+  const description = t("description");
+
+  return {
+    metadataBase: new URL(SITE_URL),
+    title,
+    description,
+    openGraph: {
+      type: "website",
+      siteName: "Erik Elias",
+      locale: locale === "pt-BR" ? "pt_BR" : "en_US",
+      title,
+      description,
+      images: [{ url: `${basePath}/og/${locale}.png`, width: 1200, height: 630, alt: title }],
+    },
+    twitter: { card: "summary_large_image" },
+  };
 }
 
 export default async function RootLayout({
