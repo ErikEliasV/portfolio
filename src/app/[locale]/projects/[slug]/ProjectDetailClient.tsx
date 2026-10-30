@@ -7,8 +7,7 @@ import { DitherBackground } from "@/components/dither/DitherBackground";
 import { BrowserBar } from "@/components/nav/BrowserBar";
 import { Chip } from "@/components/ui/Chip";
 import { PixelCard } from "@/components/ui/PixelCard";
-
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+import { ProjectMedia } from "@/components/ui/ProjectMedia";
 
 const enter = (delay = 0) => ({
   initial: { opacity: 0, y: 20 },
@@ -30,7 +29,7 @@ export function ProjectDetailClient({ project }: { project: Project }) {
 
   return (
     <MotionConfig reducedMotion="user">
-      <DitherBackground />
+      <DitherBackground accent={project.color} />
       <BrowserBar visible={1} showBack />
 
       <main className="mx-auto max-w-5xl px-6 pb-24 pt-28">
@@ -85,7 +84,7 @@ export function ProjectDetailClient({ project }: { project: Project }) {
 
         {/* Galeria */}
         <motion.div {...enter(0.2)} className="mt-16">
-          <Label>{t("screenshots")}</Label>
+          <Label>{t("gallery")}</Label>
           <div className="flex flex-col gap-6">
             {project.screenshots.map((src, i) => (
               <motion.div
@@ -96,12 +95,10 @@ export function ProjectDetailClient({ project }: { project: Project }) {
                 transition={{ delay: i * 0.05, type: "spring", stiffness: 100, damping: 20 }}
               >
                 <PixelCard className="overflow-hidden p-0">
-                  {/* eslint-disable-next-line @next/next/no-img-element -- export estático com imagens sem otimização */}
-                  <img
-                    src={`${basePath}${src}`}
-                    alt={`${t(project.titleKey)} screenshot ${i + 1}`}
+                  <ProjectMedia
+                    src={src}
+                    alt={`${t(project.titleKey)} ${i + 1}`}
                     className="block aspect-video w-full bg-panel object-cover"
-                    loading="lazy"
                   />
                 </PixelCard>
               </motion.div>

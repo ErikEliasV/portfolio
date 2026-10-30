@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import type { MotionValue } from "framer-motion";
 import { bayerThresholds } from "@/lib/dither/bayer";
-import { hexToRgb01, PLANET_PALETTE, WAVE_PALETTE } from "@/lib/dither/palette";
+import { hexToRgb01, PLANET_PALETTE, WAVE_PALETTE, wavePalette } from "@/lib/dither/palette";
 import { shouldRenderFrame } from "@/lib/frame-throttle";
 import { getIntroState } from "@/lib/intro/timeline";
 import { FRAGMENT_SHADER, VERTEX_SHADER } from "./shaders";
@@ -32,7 +32,7 @@ function compile(gl: WebGLRenderingContext, type: number, source: string) {
   return shader;
 }
 
-function setup(gl: WebGLRenderingContext): GlState | null {
+function setup(gl: WebGLRenderingContext, waves: readonly string[]): GlState | null {
   const vs = compile(gl, gl.VERTEX_SHADER, VERTEX_SHADER);
   const fs = compile(gl, gl.FRAGMENT_SHADER, FRAGMENT_SHADER);
   const program = gl.createProgram();
@@ -59,7 +59,7 @@ function setup(gl: WebGLRenderingContext): GlState | null {
 
   // Uniforms constantes
   gl.uniform1fv(gl.getUniformLocation(program, "uBayer"), new Float32Array(bayerThresholds()));
-  gl.uniform3fv(gl.getUniformLocation(program, "uWave"), new Float32Array(WAVE_PALETTE.flatMap(hexToRgb01)));
+  gl.uniform3fv(gl.getUniformLocation(program, "uWave"), new Float32Array(waves.flatMap(hexToRgb01)));
   gl.uniform3fv(
     gl.getUniformLocation(program, "uPlanetPal"),
     new Float32Array(Object.values(PLANET_PALETTE).flatMap(hexToRgb01)),
@@ -76,7 +76,8 @@ function setup(gl: WebGLRenderingContext): GlState | null {
 }
 
 // Fundo fixo: ondas + planeta em dither. Sem `introProgress`, o planeta fica invisível.
-export function DitherBackground({ introProgress }: { introProgress?: MotionValue<number> }) {
+// `accent` tinge as ondas com outra cor (cada projeto tem a sua).
+export function DitherBackground({ introProgress, accent }: { introProgress?: MotionValue<number>; accent?: string }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -166,7 +167,7 @@ export function DitherBackground({ introProgress }: { introProgress?: MotionValu
     };
 
     const init = () => {
-      state = setup(gl);
+      state = setup(gl, accent ? wavePalette(accent) : WAVE_PALETTE);
       if (!state) {
         canvas.style.display = "none";
         return;
@@ -226,7 +227,7 @@ export function DitherBackground({ introProgress }: { introProgress?: MotionValu
         gl.deleteProgram(state.program);
       }
     };
-  }, [introProgress]);
+  }, [introProgress, accent]);
 
   return (
     <>

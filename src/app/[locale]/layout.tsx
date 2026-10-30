@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist_Mono, Silkscreen } from "next/font/google";
 import "../globals.css";
 import {NextIntlClientProvider, hasLocale} from 'next-intl';
-import {setRequestLocale} from 'next-intl/server';
+import {getTranslations, setRequestLocale} from 'next-intl/server';
 import {routing} from '@/i18n/routing';
 import {notFound} from 'next/navigation';
 import { MouseFollower } from '@/components/ui/MouseFollower';
@@ -23,10 +23,15 @@ const silkscreen = Silkscreen({
   variable: "--font-silkscreen",
 });
 
-export const metadata: Metadata = {
-  title: "Erik - Front-End Engineer",
-  description: "Portfolio built with Next.js and Premium UI/UX",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Metadata" });
+  return { title: t("title"), description: t("description") };
+}
 
 export default async function RootLayout({
   children,

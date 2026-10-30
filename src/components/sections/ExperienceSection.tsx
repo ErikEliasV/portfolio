@@ -1,22 +1,17 @@
 "use client";
 
 import { useTranslations } from "next-intl";
+import { EXPERIENCE } from "@/lib/experience";
 import { PixelCard } from "@/components/ui/PixelCard";
-import { PixelIcon, type PixelIconVariant } from "@/components/ui/PixelIcon";
+import { PixelIcon } from "@/components/ui/PixelIcon";
 import { Reveal } from "./Reveal";
-
-const JOBS: { key: string; icon: PixelIconVariant; highlight?: boolean }[] = [
-  { key: "i9", icon: "plus", highlight: true },
-  { key: "senac", icon: "corner" },
-  { key: "claro", icon: "cross" },
-];
 
 export function ExperienceSection() {
   const t = useTranslations("Experience");
 
   return (
-    <div className="grid gap-3.5 md:grid-cols-3">
-      {JOBS.map(({ key, icon, highlight }, i) => (
+    <div className="grid gap-3.5 md:grid-cols-2">
+      {EXPERIENCE.map(({ key, icon, highlight }, i) => (
         <Reveal key={key} index={i}>
           <PixelCard highlight={highlight} className="h-full">
             <h3 className="flex items-center gap-3 text-[13px] font-medium uppercase tracking-widest text-fg">

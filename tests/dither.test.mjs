@@ -35,3 +35,16 @@ test("frame throttle", () => {
   assert.equal(shouldRenderFrame(1000, 990, 30), false);
   assert.equal(shouldRenderFrame(1000, 983.3, 60), true);
 });
+
+test("mixHex blends two colors", async () => {
+  const { mixHex } = await import("../src/lib/dither/palette.ts");
+  assert.equal(mixHex("#000000", "#ffffff", 0.5), "#808080");
+  assert.equal(mixHex("#0d0d0d", "#1d69d3", 0), "#0d0d0d");
+  assert.equal(mixHex("#0d0d0d", "#1d69d3", 1), "#1d69d3");
+});
+
+test("wavePalette tints the waves with a project color", async () => {
+  const { wavePalette, mixHex } = await import("../src/lib/dither/palette.ts");
+  const pal = wavePalette("#E07295");
+  assert.deepEqual(pal, ["#0d0d0d", mixHex("#0d0d0d", "#e07295", 0.12), mixHex("#0d0d0d", "#e07295", 0.34), "#e07295"]);
+});

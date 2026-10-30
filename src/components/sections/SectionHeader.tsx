@@ -18,7 +18,7 @@ export function SectionHeader({ section }: { section: SectionMeta }) {
       </div>
       <p className="max-w-[300px] bg-ink/90 px-3 py-2 text-[11px] uppercase leading-[1.6] tracking-[0.06em] text-muted">
         <span className="font-medium text-fg">
-          {number} — {t(`${id}.label`)}
+          {number} · {t(`${id}.label`)}
         </span>
         <span className="ml-1.5 text-accent" aria-hidden="true">
           ✕✕✕

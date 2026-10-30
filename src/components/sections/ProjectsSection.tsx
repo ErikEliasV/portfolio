@@ -4,9 +4,8 @@ import { useTranslations } from "next-intl";
 import { projects } from "@/data/projects";
 import { Link } from "@/i18n/routing";
 import { PixelCard } from "@/components/ui/PixelCard";
+import { ProjectMedia } from "@/components/ui/ProjectMedia";
 import { Reveal } from "./Reveal";
-
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 export function ProjectsSection() {
   const t = useTranslations("Projects");
@@ -17,11 +16,9 @@ export function ProjectsSection() {
         <Reveal key={slug} index={i}>
           <Link href={`/projects/${slug}`} className="group block h-full">
             <PixelCard className="h-full overflow-hidden p-0 group-hover:-translate-y-[3px] group-hover:border-accent-dim">
-              {/* eslint-disable-next-line @next/next/no-img-element -- export estático com imagens sem otimização */}
-              <img
-                src={`${basePath}${thumbnail}`}
+              <ProjectMedia
+                src={thumbnail}
                 alt={t(titleKey)}
-                loading="lazy"
                 className="block aspect-video w-full border-b border-line bg-panel object-cover"
               />
               <div className="px-5 pb-5 pt-[18px]">
