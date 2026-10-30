@@ -50,3 +50,13 @@ CLAUDE.md
 # Se você utiliza o Claude Code e ele gera arquivos de contexto
 *.claude.context
 
+
+# design-sync (claude.ai/design) - staged converter, build output, machine state
+.ds-sync/
+ds-bundle/
+.design-sync/.cache/
+.design-sync/learnings/
+.design-sync/node_modules
+
+# brainstorming mockups
+.superpowers/
