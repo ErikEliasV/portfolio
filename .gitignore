@@ -61,3 +61,7 @@ ds-bundle/
 
 # brainstorming mockups
 .superpowers/
+
+# Pastas locais (não sobem para o GitHub)
+/docs/
+/tests/
