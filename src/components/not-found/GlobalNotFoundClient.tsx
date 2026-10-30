@@ -2,7 +2,7 @@
 
 import { useEffect, useSyncExternalStore } from "react";
 import { NextIntlClientProvider } from "next-intl";
-import { localeFromPath, type Locale } from "@/lib/locale-from-path";
+import { isSiteRoot, localeFromPath, type Locale } from "@/lib/locale-from-path";
 import ptBR from "../../../messages/pt-BR.json";
 import en from "../../../messages/en.json";
 import { NotFoundView } from "./NotFoundView";
@@ -20,6 +20,11 @@ export function GlobalNotFoundClient() {
   );
 
   useEffect(() => {
+    // A raiz não é página que falta: manda para o idioma padrão
+    if (isSiteRoot(window.location.pathname, basePath)) {
+      window.location.replace(`${basePath}/${locale}`);
+      return;
+    }
     document.documentElement.lang = locale;
   }, [locale]);
 
