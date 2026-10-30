@@ -1,95 +1,73 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { motion } from "framer-motion";
-import { Link } from "@/i18n/routing";
-import { ArrowLeft } from "@phosphor-icons/react";
+import { MotionConfig, motion } from "framer-motion";
 import type { Project } from "@/data/projects";
+import { DitherBackground } from "@/components/dither/DitherBackground";
+import { BrowserBar } from "@/components/nav/BrowserBar";
+import { Chip } from "@/components/ui/Chip";
+import { PixelCard } from "@/components/ui/PixelCard";
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
+const enter = (delay = 0) => ({
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+  transition: { delay, type: "spring" as const, stiffness: 100, damping: 20 },
+});
+
+function Label({ children }: { children: React.ReactNode }) {
+  return (
+    <h2 className="mb-4 w-fit bg-ink/90 px-1.5 py-0.5 text-[11px] uppercase tracking-[0.12em] text-muted">
+      -- {children} --
+    </h2>
+  );
+}
+
 export function ProjectDetailClient({ project }: { project: Project }) {
   const t = useTranslations("Projects");
+  const tSections = useTranslations("Sections");
 
   return (
-    <main className="min-h-screen bg-[#0c0c10] text-slate-200">
-      {/* Fixed Top Bar */}
-      <nav className="fixed top-0 left-0 right-0 z-50 border-b border-white/5 bg-[#0c0c10]/80 backdrop-blur-xl">
-        <div className="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
-          <Link
-            href="/"
-            className="flex items-center gap-2 text-sm font-geist-mono text-slate-400 hover:text-emerald-400 transition-colors group"
-          >
-            <ArrowLeft weight="bold" className="text-xs transition-transform group-hover:-translate-x-1" />
-            {t("back")}
-          </Link>
-          <span className="font-geist-mono text-xs text-emerald-400 tracking-widest">
-            ERIK_PORTFOLIO
-          </span>
-        </div>
-      </nav>
+    <MotionConfig reducedMotion="user">
+      <DitherBackground />
+      <BrowserBar visible={1} showBack />
 
-      <div className="max-w-5xl mx-auto px-6 pt-28 pb-24">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ type: "spring", stiffness: 100, damping: 20 }}
-        >
-          {/* Terminal prompt */}
-          <div className="flex items-center gap-2 mb-6 font-geist-mono text-sm selection:bg-emerald-500/30">
-            <span className="text-emerald-400">erik@local</span>
-            <span className="text-teal-400">~/projects</span>
-            <span className="text-slate-500">$</span>
-            <span className="text-slate-200 ml-1">cat {project.slug}/README.md</span>
-          </div>
-
-          <h1 className="text-3xl md:text-5xl font-medium tracking-tight text-white mb-4">
+      <main className="mx-auto max-w-5xl px-6 pb-24 pt-28">
+        {/* Cabeçalho */}
+        <motion.div {...enter()}>
+          <p className="-ml-1.5 mb-6 w-fit bg-ink/90 px-1.5 py-0.5 text-[12px] text-muted [overflow-wrap:anywhere]">
+            <span className="text-accent">erik@local</span> ~/projects $ cat {project.slug}/README.md
+          </p>
+          <h1 className="font-pixel text-[clamp(28px,6vw,72px)] font-bold uppercase leading-[0.95] text-cream text-outline [overflow-wrap:anywhere]">
             {t(project.titleKey)}
           </h1>
-          <p className="text-slate-400 text-lg leading-relaxed max-w-[65ch]">
+          <p className="mt-6 max-w-[70ch] border border-line bg-panel/95 p-5 text-[14px] leading-[1.7] text-copy">
             {t(project.descKey)}
           </p>
         </motion.div>
 
-        {/* Tech Stack */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1, type: "spring", stiffness: 100, damping: 20 }}
-          className="mt-10"
-        >
-          <h2 className="font-geist-mono text-xs text-slate-600 uppercase tracking-widest mb-4">
-            -- {t("tech_stack")} --
-          </h2>
-          <div className="flex flex-wrap gap-2">
+        {/* Tech stack */}
+        <motion.div {...enter(0.1)} className="mt-10">
+          <Label>{t("tech_stack")}</Label>
+          <div className="flex flex-wrap gap-[7px]">
             {project.tech.map((tech) => (
-              <span
-                key={tech}
-                className="px-3 py-1.5 text-sm font-geist-mono text-slate-300 border border-white/10 rounded-lg bg-white/[0.02] hover:border-emerald-500/50 hover:bg-emerald-500/10 transition-colors"
-              >
-                {tech}
-              </span>
+              <Chip key={tech}>{tech}</Chip>
             ))}
           </div>
         </motion.div>
 
         {/* Links */}
         {(project.github || project.live) && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.15, type: "spring", stiffness: 100, damping: 20 }}
-            className="mt-8 flex gap-4"
-          >
+          <motion.div {...enter(0.15)} className="mt-8 flex flex-wrap gap-3.5">
             {project.github && (
               <a
                 href={project.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-4 py-2 text-sm font-geist-mono text-slate-300 border border-white/10 rounded-lg hover:border-emerald-500/50 hover:bg-emerald-500/10 hover:text-emerald-400 transition-all"
+                className="border border-line bg-panel/95 px-4 py-2 font-pixel text-sm uppercase text-fg transition-colors hover:border-accent-dim hover:text-accent"
               >
-                GitHub
+                {"{GitHub}"}
               </a>
             )}
             {project.live && (
@@ -97,24 +75,17 @@ export function ProjectDetailClient({ project }: { project: Project }) {
                 href={project.live}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-4 py-2 text-sm font-geist-mono text-emerald-400 border border-emerald-500/50 rounded-lg bg-emerald-500/10 hover:bg-emerald-500/20 transition-all"
+                className="border border-accent-dim bg-panel/95 px-4 py-2 font-pixel text-sm uppercase text-accent transition-colors hover:bg-ink"
               >
-                Live Demo
+                {"{Live Demo}"}
               </a>
             )}
           </motion.div>
         )}
 
-        {/* Screenshots Gallery */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, type: "spring", stiffness: 100, damping: 20 }}
-          className="mt-16"
-        >
-          <h2 className="font-geist-mono text-xs text-slate-600 uppercase tracking-widest mb-6">
-            -- {t("screenshots")} --
-          </h2>
+        {/* Galeria */}
+        <motion.div {...enter(0.2)} className="mt-16">
+          <Label>{t("screenshots")}</Label>
           <div className="flex flex-col gap-6">
             {project.screenshots.map((src, i) => (
               <motion.div
@@ -123,25 +94,27 @@ export function ProjectDetailClient({ project }: { project: Project }) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ delay: i * 0.05, type: "spring", stiffness: 100, damping: 20 }}
-                className="relative w-full flex justify-center rounded-xl overflow-hidden border border-white/10 bg-zinc-900"
               >
-                <img
-                  src={`${basePath}${src}`}
-                  alt={`${t(project.titleKey)} screenshot ${i + 1}`}
-                  className="w-auto max-w-full h-auto max-h-[85vh] object-contain"
-                  loading="lazy"
-                />
+                <PixelCard className="overflow-hidden p-0">
+                  {/* eslint-disable-next-line @next/next/no-img-element -- export estático com imagens sem otimização */}
+                  <img
+                    src={`${basePath}${src}`}
+                    alt={`${t(project.titleKey)} screenshot ${i + 1}`}
+                    className="block aspect-video w-full bg-panel object-cover"
+                    loading="lazy"
+                  />
+                </PixelCard>
               </motion.div>
             ))}
           </div>
         </motion.div>
 
-        {/* Terminal closure */}
-        <div className="mt-24 text-xs font-geist-mono text-slate-500 flex flex-col gap-1 items-center justify-center opacity-40 hover:opacity-100 transition-opacity cursor-default">
-          <span className="text-emerald-500/50">{"[ End of file ]"}</span>
+        {/* Fim do arquivo */}
+        <div className="mt-24 flex flex-col items-center gap-1 text-[11px] tracking-[0.14em] text-muted">
+          <span className="text-accent">{tSections("contact.eof")}</span>
           <span>EOF</span>
         </div>
-      </div>
-    </main>
+      </main>
+    </MotionConfig>
   );
 }
