@@ -45,12 +45,12 @@ export function MouseFollower() {
       <motion.div 
         animate={{ 
           scale: isHovering ? 2.2 : 0.8,
-          backgroundColor: isHovering ? "rgba(16, 185, 129, 0.08)" : "rgba(16, 185, 129, 0.4)",
-          borderColor: isHovering ? "rgba(16, 185, 129, 0.4)" : "rgba(16, 185, 129, 0)",
+          backgroundColor: isHovering ? "rgba(181, 245, 98, 0.08)" : "rgba(181, 245, 98, 0.4)",
+          borderColor: isHovering ? "rgba(181, 245, 98, 0.4)" : "rgba(181, 245, 98, 0)",
           backdropFilter: isHovering ? "blur(4px)" : "blur(0px)",
         }}
         transition={{ type: "spring", stiffness: 300, damping: 20 }}
-        className="w-full h-full rounded-full border shadow-[0_0_20px_rgba(16,185,129,0.3)] glass-panel"
+        className="w-full h-full rounded-full border shadow-[0_0_20px_rgba(181,245,98,0.3)] glass-panel"
       />
     </motion.div>
   );

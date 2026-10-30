@@ -16,8 +16,6 @@
     "contact": "Contact"
   },
   "Experience": {
-    "title": "> whoami --history",
-    "subtitle": "Loading professional history from local server... [OK]",
     "i9_role": "Full Stack Developer",
     "i9_company": "i9systemas (Startup)",
     "i9_date": "Jul 2025 — Feb 2026",
@@ -32,7 +30,6 @@
     "claro_desc": "Worked at the Customer Relationship Center handling Claro's financial support, resolving questions around invoices, payments and services — where I sharpened communication and problem-solving under pressure."
   },
   "Education": {
-    "title": "> cat education.txt",
     "course": "Computer Science",
     "institution": "UNP — Mossoró/RN",
     "date": "Jun 2023 — Present",
@@ -40,14 +37,11 @@
     "certs": "TypeScript Track — Alura (in progress), Docker & Docker Compose — Alura (in progress), Java & Spring Boot Track — Alura (in progress), Systems Developer — Senac (completed), Web Developer — Senac, APIs with Node.js and Express — Alura, React with TailwindCSS — Alura"
   },
   "Skills": {
-    "title": "> system_info --tools",
-    "subtitle": "Extracting core dependency lists... [DONE]",
     "frontend": "Next.js, React, React Native, TypeScript, JavaScript, Tailwind CSS, Styled Components, Context API, HTML, CSS",
     "backend": "Node.js, Express, Prisma, Django, Spring Boot, Java, Python, PostgreSQL",
     "tools": "Docker, Docker Compose, Git, GitHub, Zod, Claude (Anthropic)"
   },
   "Projects": {
-    "title": "> ls ~/projects --showcase",
     "kiresaile_title": "KIRESAILE E-commerce",
     "kiresaile_desc": "An e-commerce landing page built with Next.js 16, TypeScript and Tailwind CSS 4, presenting KIRESAILE — a fictional women's fashion brand created for this portfolio project. The centerpiece is a fabric video processed in real time by a WebGL fragment shader, which distorts and animates the textile directly on the GPU. It also features a fully functional shopping cart and an editorial design in black, white and electric blue.",
     "bmw_title": "BMW Concept Website",
@@ -55,7 +49,6 @@
     "view_project": "View Project",
     "back": "Back to Portfolio",
     "tech_stack": "Tech Stack",
-    "gallery": "Gallery",
     "screenshots": "Screenshots"
   },
   "HeroCards": {

@@ -16,8 +16,6 @@
     "contact": "Contato"
   },
   "Experience": {
-    "title": "> whoami --history",
-    "subtitle": "Carregando histórico do servidor local... [OK]",
     "i9_role": "Desenvolvedor Full Stack",
     "i9_company": "i9systemas (Startup)",
     "i9_date": "Jul 2025 — Fev 2026",
@@ -32,7 +30,6 @@
     "claro_desc": "Atuei no CRC (Central de Relacionamento com o Cliente), prestando suporte na área financeira da Claro e solucionando demandas relacionadas a faturas, pagamentos e serviços — onde desenvolvi comunicação clara e resolução de problemas sob pressão."
   },
   "Education": {
-    "title": "> cat education.txt",
     "course": "Ciências da Computação",
     "institution": "UNP — Mossoró/RN",
     "date": "Jun 2023 — Atual",
@@ -40,14 +37,11 @@
     "certs": "Formação TypeScript — Alura (em andamento), Docker e Docker Compose — Alura (em andamento), Formação Java e Spring Boot — Alura (em andamento), Desenvolvedor de Sistemas — Senac (concluído), Desenvolvedor Web — Senac, APIs com Node.js e Express — Alura, React com TailwindCSS — Alura"
   },
   "Skills": {
-    "title": "> system_info --tools",
-    "subtitle": "Extraindo lista de dependências fundamentais... [DONE]",
     "frontend": "Next.js, React, React Native, TypeScript, JavaScript, Tailwind CSS, Styled Components, Context API, HTML, CSS",
     "backend": "Node.js, Express, Prisma, Django, Spring Boot, Java, Python, PostgreSQL",
     "tools": "Docker, Docker Compose, Git, GitHub, Zod, Claude (Anthropic)"
   },
   "Projects": {
-    "title": "> ls ~/projects --showcase",
     "kiresaile_title": "KIRESAILE E-commerce",
     "kiresaile_desc": "Uma landing page de e-commerce desenvolvida com Next.js 16, TypeScript e Tailwind CSS 4, apresentando a KIRESAILE — uma marca de moda feminina fictícia criada para este projeto de portfólio. O destaque é um vídeo de tecido processado em tempo real por um fragment shader WebGL, que distorce e anima o tecido diretamente na GPU. O projeto também conta com carrinho de compras funcional e design editorial em preto, branco e azul elétrico.",
     "bmw_title": "BMW Concept Website",
@@ -55,7 +49,6 @@
     "view_project": "Ver Projeto",
     "back": "Voltar ao Portfólio",
     "tech_stack": "Tech Stack",
-    "gallery": "Galeria",
     "screenshots": "Capturas de Tela"
   },
   "HeroCards": {
