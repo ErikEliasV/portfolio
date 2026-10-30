@@ -9,6 +9,10 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
+  // 404 própria para endereços sem rota (o layout raiz é o [locale], dinâmico)
+  experimental: {
+    globalNotFound: true,
+  },
 };
 
 export default withNextIntl(nextConfig);

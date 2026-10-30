@@ -2,11 +2,11 @@
 
 import { useEffect, useState } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
+import { useMediaQuery } from "@/lib/use-media-query";
 
 export function MouseFollower() {
-  const [mounted, setMounted] = useState(false);
+  const isDesktop = useMediaQuery("(min-width: 1024px)"); // Disable on touch devices
   const [isHovering, setIsHovering] = useState(false);
-  const [isMobile, setIsMobile] = useState(true);
   
   // High performance motion values
   const cursorX = useMotionValue(-100);
@@ -18,13 +18,6 @@ export function MouseFollower() {
   const cursorYSpring = useSpring(cursorY, springConfig);
 
   useEffect(() => {
-    setMounted(true);
-    setIsMobile(window.innerWidth < 1024); // Disable on touch devices
-    
-    // Check resizing
-    const handleResize = () => setIsMobile(window.innerWidth < 1024);
-    window.addEventListener("resize", handleResize);
-    
     const moveCursor = (e: MouseEvent) => {
       cursorX.set(e.clientX - 20); // offset by half width (40/2)
       cursorY.set(e.clientY - 20);
@@ -39,13 +32,10 @@ export function MouseFollower() {
     };
 
     window.addEventListener("mousemove", moveCursor);
-    return () => {
-      window.removeEventListener("mousemove", moveCursor);
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+    return () => window.removeEventListener("mousemove", moveCursor);
+  }, [cursorX, cursorY]);
 
-  if (!mounted || isMobile) return null;
+  if (!isDesktop) return null;
 
   return (
     <motion.div
@@ -55,12 +45,12 @@ export function MouseFollower() {
       <motion.div 
         animate={{ 
           scale: isHovering ? 2.2 : 0.8,
-          backgroundColor: isHovering ? "rgba(16, 185, 129, 0.08)" : "rgba(16, 185, 129, 0.4)",
-          borderColor: isHovering ? "rgba(16, 185, 129, 0.4)" : "rgba(16, 185, 129, 0)",
+          backgroundColor: isHovering ? "rgba(181, 245, 98, 0.08)" : "rgba(181, 245, 98, 0.4)",
+          borderColor: isHovering ? "rgba(181, 245, 98, 0.4)" : "rgba(181, 245, 98, 0)",
           backdropFilter: isHovering ? "blur(4px)" : "blur(0px)",
         }}
         transition={{ type: "spring", stiffness: 300, damping: 20 }}
-        className="w-full h-full rounded-full border shadow-[0_0_20px_rgba(16,185,129,0.3)] glass-panel"
+        className="w-full h-full rounded-full border shadow-[0_0_20px_rgba(181,245,98,0.3)] glass-panel"
       />
     </motion.div>
   );

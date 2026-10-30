@@ -1,52 +1,104 @@
 {
+  "Metadata": {
+    "title": "Erik Elias · Desenvolvedor Full Stack",
+    "description": "Portfólio do Erik Elias, desenvolvedor Full Stack que trabalha com Next.js, TypeScript e WebGL."
+  },
   "Hero": {
     "title": "Erik Elias",
     "heroRole": "Full Stack Dev.",
-    "subtitle": "Desenvolvedor Full Stack construindo experiências digitais com Next.js e TypeScript",
-    "role": "Anterior: Full Stack na i9systemas (Jul 2025 - Fev 2026)",
-    "cta": "Explorar Projetos"
+    "subtitle": "Desenvolvedor Full Stack que trabalha com Next.js e TypeScript, do front-end à API.",
+    "role": "Aberto a vagas Full Stack · freelance na The GRAW Design",
+    "cta": "Ver projetos",
+    "boot_ready": "pronto em 1250ms"
+  },
+  "Nav": {
+    "about": "Sobre",
+    "experience": "Experiência",
+    "skills": "Habilidades",
+    "education": "Formação",
+    "projects": "Projetos",
+    "contact": "Contato"
   },
   "Experience": {
-    "title": "> whoami --history",
-    "subtitle": "Carregando histórico do servidor local... [OK]",
+    "graw_role": "Desenvolvedor Full Stack",
+    "graw_company": "The GRAW Design · freelance por projeto",
+    "graw_date": "Ago 2026 - Atual",
+    "graw_desc": "Entrei na The GRAW Design, o estúdio de design do André Gonçalves, a convite dele, depois que ele desenhou o meu portfólio da Elle Fanning. Quando entra um cliente, eu transformo os layouts do estúdio em sites, das animações às cenas em WebGL. Agora faço o site da Naturallis, uma loja de fórmulas manipuladas em Next.js 16, GSAP e Three.js, e o novo site do estúdio. Também montei o CI dos dois projetos, que roda lint e checagem de tipos antes de cada deploy. Como o trabalho é por projeto, sigo disponível para uma vaga fixa.",
     "i9_role": "Desenvolvedor Full Stack",
-    "i9_company": "i9systemas (Startup)",
-    "i9_date": "Jul 2025 — Fev 2026",
-    "i9_desc": "Integrei a equipe de desenvolvimento de um sistema de gestão para o setor de construção civil, construído do zero, abrangendo o gerenciamento de obras, empresas e funcionários. Desenvolvi o front-end com Next.js e TypeScript, utilizando Context API para estado global e Zod para validação de dados e formulários, além de Git e GitHub para versionamento e colaboração em equipe.",
+    "i9_company": "i9systemas (startup)",
+    "i9_date": "Jul 2025 - Fev 2026",
+    "i9_desc": "Fiz parte da equipe que construiu do zero um sistema de gestão para a construção civil, com controle de obras, empresas e funcionários. Desenvolvi o front-end em Next.js e TypeScript, com Context API para o estado global e Zod para validar dados e formulários. O versionamento era em Git e GitHub.",
     "senac_role": "Estagiário Full Stack",
-    "senac_company": "Senac — Projeto Senac Labs",
-    "senac_date": "Abr 2025 — Jul 2025",
-    "senac_desc": "Integrei a equipe responsável pelo desenvolvimento de um aplicativo mobile para o Sindicato de Mossoró, com o objetivo de otimizar processos internos e a comunicação com os associados. Atuei na construção do front-end com React Native e TypeScript, focando em interfaces responsivas e intuitivas, e colaborei no desenvolvimento da API com Express e Prisma.",
+    "senac_company": "Senac (projeto Senac Labs)",
+    "senac_date": "Abr 2025 - Jul 2025",
+    "senac_desc": "Fiz parte da equipe que desenvolveu um aplicativo para o Sindicato de Mossoró, para organizar os processos internos e a comunicação com os associados. Construí o front-end em React Native e TypeScript e ajudei na API, feita com Express e Prisma.",
     "claro_role": "Atendente",
     "claro_company": "Claro (AeC)",
-    "claro_date": "Jul 2024 — Nov 2024",
-    "claro_desc": "Atuei no CRC (Central de Relacionamento com o Cliente), prestando suporte na área financeira da Claro e solucionando demandas relacionadas a faturas, pagamentos e serviços — onde desenvolvi comunicação clara e resolução de problemas sob pressão."
+    "claro_date": "Jul 2024 - Nov 2024",
+    "claro_desc": "Trabalhei na Central de Relacionamento com o Cliente da Claro, no suporte financeiro, resolvendo dúvidas e problemas com faturas, pagamentos e serviços. Foi ali que aprendi a resolver problemas sob pressão e a explicar as coisas com clareza."
   },
   "Education": {
-    "title": "> cat education.txt",
     "course": "Ciências da Computação",
-    "institution": "UNP — Mossoró/RN",
-    "date": "Jun 2023 — Atual",
-    "certs_label": "Cursos e Certificações",
-    "certs": "Formação TypeScript — Alura (em andamento), Docker e Docker Compose — Alura (em andamento), Formação Java e Spring Boot — Alura (em andamento), Desenvolvedor de Sistemas — Senac (concluído), Desenvolvedor Web — Senac, APIs com Node.js e Express — Alura, React com TailwindCSS — Alura"
+    "institution": "UNP, Mossoró/RN",
+    "date": "Jun 2023 - Atual",
+    "certs_label": "Cursos e certificações",
+    "certs": "Formação TypeScript na Alura (em andamento), Docker e Docker Compose na Alura (em andamento), Formação Java e Spring Boot na Alura (em andamento), Desenvolvedor de Sistemas no Senac (concluído), Desenvolvedor Web no Senac, APIs com Node.js e Express na Alura, React com TailwindCSS na Alura"
   },
   "Skills": {
-    "title": "> system_info --tools",
-    "subtitle": "Extraindo lista de dependências fundamentais... [DONE]",
     "frontend": "Next.js, React, React Native, TypeScript, JavaScript, Tailwind CSS, Styled Components, Context API, HTML, CSS",
     "backend": "Node.js, Express, Prisma, Django, Spring Boot, Java, Python, PostgreSQL",
     "tools": "Docker, Docker Compose, Git, GitHub, Zod, Claude (Anthropic)"
   },
   "Projects": {
-    "title": "> ls ~/projects --showcase",
+    "ellefanning_title": "Elle Fanning Portfolio",
+    "ellefanning_desc": "Um portfólio editorial de fã sobre a carreira da Elle Fanning, que também uso como laboratório de front-end criativo. Na abertura, milhares de blocos 3D em Three.js formam o retrato dela e ondulam com o cursor. Na filmografia, os pôsteres passam entre as duas metades da palavra como um rolo de cinema enquanto você rola a página. Escrevi todos os efeitos à mão: shaders em WebGL, física de mola, som com a Web Audio API e um cursor de vidro líquido feito com filtros SVG. O design é do André Gonçalves, da The GRAW Design.",
     "kiresaile_title": "KIRESAILE E-commerce",
-    "kiresaile_desc": "Uma landing page de e-commerce desenvolvida com Next.js 16, TypeScript e Tailwind CSS 4, apresentando a KIRESAILE — uma marca de moda feminina fictícia criada para este projeto de portfólio. O destaque é um vídeo de tecido processado em tempo real por um fragment shader WebGL, que distorce e anima o tecido diretamente na GPU. O projeto também conta com carrinho de compras funcional e design editorial em preto, branco e azul elétrico.",
+    "kiresaile_desc": "Landing page de e-commerce da KIRESAILE, uma marca de moda feminina que inventei para este projeto, feita em Next.js 16, TypeScript e Tailwind CSS 4. Um fragment shader em WebGL distorce e anima um vídeo de tecido em tempo real, direto na GPU. Tem carrinho de compras funcionando e um visual editorial em preto, branco e azul elétrico.",
     "bmw_title": "BMW Concept Website",
-    "bmw_desc": "Este projeto nasceu da minha vontade de explorar e praticar o Scrollytelling — uma técnica que utiliza o scroll para conduzir animações cinematográficas e contar histórias na web. Para dar vida a esse conceito, escolhi o BMW X6 M Competition como tema, usando o design e a potência do carro como tela perfeita para criar uma experiência imersiva e visualmente impactante. O resultado é uma landing page premium onde cada scroll revela um novo detalhe do veículo, do seu exterior agressivo até o seu motor de alta performance.",
-    "view_project": "Ver Projeto",
-    "back": "Voltar ao Portfólio",
-    "tech_stack": "Tech Stack",
-    "gallery": "Galeria",
-    "screenshots": "Capturas de Tela"
+    "bmw_desc": "Fiz este projeto para praticar scrollytelling, a técnica em que a rolagem conduz as animações e conta uma história. O tema é o BMW X6 M Competition: cada trecho da rolagem mostra um detalhe do carro, do exterior ao motor.",
+    "view_project": "Ver projeto",
+    "back": "Voltar ao portfólio",
+    "tech_stack": "Tech stack",
+    "gallery": "Galeria"
+  },
+  "HeroCards": {
+    "experience": "Freelance na The GRAW Design · i9systemas 2025-2026",
+    "skills": "Next.js · React · Node.js · Docker"
+  },
+  "Sections": {
+    "experience": {
+      "title": "EXPERIÊNCIA",
+      "label": "Onde já trabalhei",
+      "blurb": "Startup, estágio, atendimento e, hoje, freelance por projeto para um estúdio de design."
+    },
+    "skills": {
+      "title": "HABILIDADES",
+      "label": "Com o que eu trabalho",
+      "blurb": "Front-end, back-end e as ferramentas que uso todo dia.",
+      "frontend": "Frontend / Mobile",
+      "backend": "Backend / DevOps",
+      "tools": "Ferramentas / IA"
+    },
+    "education": {
+      "title": "FORMAÇÃO",
+      "label": "Onde estudo",
+      "blurb": "Graduação e cursos em andamento."
+    },
+    "projects": {
+      "title": "PROJETOS",
+      "label": "O que construí",
+      "blurb": "Clique em um projeto para ver a galeria, a stack e os links."
+    },
+    "contact": {
+      "title": "CONTATO",
+      "label": "Vamos conversar",
+      "blurb": "Estou aberto a oportunidades como desenvolvedor Full Stack.",
+      "eof": "[ PROCESSO FINALIZADO ]"
+    }
+  },
+  "NotFound": {
+    "title": "Página não encontrada",
+    "message": "Esse endereço não existe ou mudou de lugar.",
+    "cta": "Voltar ao início"
   }
 }

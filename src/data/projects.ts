@@ -2,8 +2,9 @@ export interface Project {
   slug: string;
   titleKey: string;
   descKey: string;
+  color: string; // cor do dither de fundo na página do projeto
   thumbnail: string;
-  screenshots: string[];
+  screenshots: string[]; // imagens ou vídeos (.mp4)
   tech: string[];
   github?: string;
   live?: string;
@@ -11,9 +12,27 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    slug: "ellefanning-website",
+    titleKey: "ellefanning_title",
+    descKey: "ellefanning_desc",
+    color: "#e07295",
+    thumbnail: "/screenshot/ELLEFANNING_website/hero.mp4",
+    screenshots: [
+      "/screenshot/ELLEFANNING_website/hero.mp4",
+      "/screenshot/ELLEFANNING_website/filmography.mp4",
+      "/screenshot/ELLEFANNING_website/characters.mp4",
+      "/screenshot/ELLEFANNING_website/editorial.mp4",
+      "/screenshot/ELLEFANNING_website/now.mp4",
+    ],
+    tech: ["Next.js 16", "TypeScript", "Three.js", "WebGL / GLSL", "GSAP", "Lenis", "Tailwind CSS 4", "Web Audio API"],
+    github: "https://github.com/ErikEliasV/ellefanning-portfolio",
+    live: "https://erikeliasv.github.io/ellefanning-portfolio/",
+  },
+  {
     slug: "kiresaile-website",
     titleKey: "kiresaile_title",
     descKey: "kiresaile_desc",
+    color: "#1b1be0",
     thumbnail: "/screenshot/KIRESAILE_website/hero.png",
     screenshots: [
       "/screenshot/KIRESAILE_website/hero.png",
@@ -33,6 +52,7 @@ export const projects: Project[] = [
     slug: "bmw-website",
     titleKey: "bmw_title",
     descKey: "bmw_desc",
+    color: "#1d69d3",
     thumbnail: "/screenshot/BMW_website/hero-preview.png",
     screenshots: [
       "/screenshot/BMW_website/hero.png",

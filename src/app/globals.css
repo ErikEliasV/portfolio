@@ -1,20 +1,100 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, monospace;
+  --font-pixel: var(--font-silkscreen), ui-monospace, monospace;
+
+  --color-ink: #0d0d0d;
+  --color-panel: #1a1a1a;
+  --color-line: #2c2c2c;
+  --color-accent: #b5f562;
+  --color-accent-dim: #6f9a3a;
+  --color-fg: #e8e8e0;
+  --color-cream: #f1f1e8;
+  --color-copy: #b9b9b0;
+  --color-muted: #8a8a82;
+
+  --animate-blink: blink 1s steps(1) infinite;
+
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
+  }
 }
 
-:root {
-  --background: #09090b; /* Zinc 950 */
-  --foreground: #fafafa;
+/* Grade fina por cima do fundo */
+@utility bg-grid {
+  background-image:
+    linear-gradient(to right, #ffffff09 1px, transparent 1px),
+    linear-gradient(to bottom, #ffffff09 1px, transparent 1px);
+  background-size: 36px 36px;
+}
+
+/* Rolagem suave fica com o Lenis (SmoothScroll). Sem scroll-behavior: smooth no CSS,
+   para que um link direto (#projects) ou F5 no meio da página não anime a intro. */
+html.lenis,
+html.lenis body {
+  height: auto;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: var(--font-sans);
+  color: var(--color-fg);
+  background: var(--color-ink);
+  font-family: var(--font-mono);
   overflow-x: hidden;
+}
+
+/* Barra de rolagem no visual pixel: trilho ink, polegar quadrado com recuo */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-ink);
+  border-left: 1px solid var(--color-line);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-accent-dim);
+  border: 3px solid var(--color-ink);
+  border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb:hover,
+::-webkit-scrollbar-thumb:active {
+  background: var(--color-accent);
+}
+
+::-webkit-scrollbar-corner {
+  background: var(--color-ink);
+}
+
+/* Firefox não tem ::-webkit-scrollbar */
+@supports not selector(::-webkit-scrollbar) {
+  html {
+    scrollbar-color: var(--color-accent-dim) var(--color-ink);
+    scrollbar-width: thin;
+  }
+}
+
+/* Contorno + sombra dura em pixel: título legível mesmo sobre o planeta */
+@utility text-outline {
+  text-shadow:
+    -2px 0 var(--color-ink),
+    2px 0 var(--color-ink),
+    0 -2px var(--color-ink),
+    0 2px var(--color-ink),
+    -2px -2px var(--color-ink),
+    2px -2px var(--color-ink),
+    -2px 2px var(--color-ink),
+    4px 4px 0 var(--color-ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
 }
 
 /* Taste-Skill: Liquid Glass Effect */
