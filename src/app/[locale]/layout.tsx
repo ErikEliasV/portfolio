@@ -44,10 +44,9 @@ export default async function RootLayout({
   const messages = (await import(`../../../messages/${locale}.json`)).default;
 
   return (
-    <html lang={locale} className="dark">
-      <body
-        className={`${geistMono.variable} ${silkscreen.variable} font-mono antialiased bg-ink text-fg min-h-[100dvh]`}
-      >
+    // As variáveis das fontes ficam no <html>: o @theme do Tailwind as lê no :root
+    <html lang={locale} className={`dark ${geistMono.variable} ${silkscreen.variable}`}>
+      <body className="font-mono antialiased bg-ink text-fg min-h-[100dvh]">
         <NextIntlClientProvider messages={messages}>
           <SmoothScroll />
           <MouseFollower />
