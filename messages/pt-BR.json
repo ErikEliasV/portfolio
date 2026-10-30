@@ -4,7 +4,16 @@
     "heroRole": "Full Stack Dev.",
     "subtitle": "Desenvolvedor Full Stack construindo experiências digitais com Next.js e TypeScript",
     "role": "Anterior: Full Stack na i9systemas (Jul 2025 - Fev 2026)",
-    "cta": "Explorar Projetos"
+    "cta": "Explorar Projetos",
+    "boot_ready": "pronto em 1250ms"
+  },
+  "Nav": {
+    "about": "Sobre",
+    "experience": "Experiência",
+    "skills": "Habilidades",
+    "education": "Formação",
+    "projects": "Projetos",
+    "contact": "Contato"
   },
   "Experience": {
     "title": "> whoami --history",
@@ -48,5 +57,40 @@
     "tech_stack": "Tech Stack",
     "gallery": "Galeria",
     "screenshots": "Capturas de Tela"
+  },
+  "HeroCards": {
+    "experience": "Full Stack na i9systemas · 2025–2026",
+    "skills": "Next.js · React · Node.js · Docker"
+  },
+  "Sections": {
+    "experience": {
+      "title": "EXPERIÊNCIA",
+      "label": "Onde já trabalhei",
+      "blurb": "Da startup ao atendimento: front-end, mobile e API em equipe."
+    },
+    "skills": {
+      "title": "HABILIDADES",
+      "label": "Com o que eu trabalho",
+      "blurb": "Front-end, back-end e as ferramentas do dia a dia.",
+      "frontend": "Frontend / Mobile",
+      "backend": "Backend / DevOps",
+      "tools": "Ferramentas / IA"
+    },
+    "education": {
+      "title": "FORMAÇÃO",
+      "label": "Onde estudo",
+      "blurb": "Graduação e cursos em andamento."
+    },
+    "projects": {
+      "title": "PROJETOS",
+      "label": "O que construí",
+      "blurb": "Clique em um projeto para ver galeria, stack e links."
+    },
+    "contact": {
+      "title": "CONTATO",
+      "label": "Vamos conversar",
+      "blurb": "Estou aberto a oportunidades como desenvolvedor Full Stack.",
+      "eof": "[ PROCESSO FINALIZADO ]"
+    }
   }
 }
