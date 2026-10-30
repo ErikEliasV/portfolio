@@ -1,6 +1,5 @@
 import { setRequestLocale } from 'next-intl/server';
-import { SiteSections } from '@/components/sections/SiteSections';
-import { DitherBackground } from '@/components/dither/DitherBackground';
+import { HomeExperience } from '@/components/home/HomeExperience';
 
 export default async function HomePage({
   params,
@@ -9,10 +8,5 @@ export default async function HomePage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
-  return (
-    <main className="min-h-[100dvh]">
-      <DitherBackground />
-      <SiteSections />
-    </main>
-  );
+  return <HomeExperience />;
 }

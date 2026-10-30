@@ -13,6 +13,14 @@
   --color-cream: #f1f1e8;
   --color-copy: #b9b9b0;
   --color-muted: #8a8a82;
+
+  --animate-blink: blink 1s steps(1) infinite;
+
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
+  }
 }
 
 /* Grade fina por cima do fundo */
@@ -23,24 +31,11 @@
   background-size: 36px 36px;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-}
-
-/* Lenis controla a rolagem quando está ativo */
+/* Rolagem suave fica com o Lenis (SmoothScroll). Sem scroll-behavior: smooth no CSS,
+   para que um link direto (#projects) ou F5 no meio da página não anime a intro. */
 html.lenis,
 html.lenis body {
   height: auto;
-}
-
-html.lenis.lenis-smooth {
-  scroll-behavior: auto;
 }
 
 body {
@@ -48,6 +43,19 @@ body {
   background: var(--color-ink);
   font-family: var(--font-mono);
   overflow-x: hidden;
+}
+
+/* Contorno + sombra dura em pixel: título legível mesmo sobre o planeta */
+@utility text-outline {
+  text-shadow:
+    -2px 0 var(--color-ink),
+    2px 0 var(--color-ink),
+    0 -2px var(--color-ink),
+    0 2px var(--color-ink),
+    -2px -2px var(--color-ink),
+    2px -2px var(--color-ink),
+    -2px 2px var(--color-ink),
+    4px 4px 0 var(--color-ink);
 }
 
 :focus-visible {
