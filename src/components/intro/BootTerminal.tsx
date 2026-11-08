@@ -1,7 +1,9 @@
 "use client";
 
+import { motion, type MotionValue } from "framer-motion";
 import { useTranslations } from "next-intl";
 import type { ReactNode } from "react";
+import { twMerge } from "tailwind-merge";
 
 interface Line {
   kind: "cmd" | "out";
@@ -42,7 +44,19 @@ function mobileSteps(ready: string): Line[][] {
   ];
 }
 
-export function BootTerminal({ typedLines, mobile }: { typedLines: number; mobile: boolean }) {
+// textOpacity apaga só o texto (o cursor continua, é nele que a câmera mergulha);
+// solidCursor para de piscar durante o mergulho.
+export function BootTerminal({
+  typedLines,
+  mobile,
+  textOpacity,
+  solidCursor = false,
+}: {
+  typedLines: number;
+  mobile: boolean;
+  textOpacity?: MotionValue<number>;
+  solidCursor?: boolean;
+}) {
   const t = useTranslations("Hero");
   const steps = mobile ? mobileSteps(t("boot_ready")) : desktopSteps(t("boot_ready"));
   const lines = steps.slice(0, Math.max(1, typedLines)).flat();
@@ -51,16 +65,22 @@ export function BootTerminal({ typedLines, mobile }: { typedLines: number; mobil
     <div className="text-[12px] leading-[1.75] md:text-[13px]">
       {lines.map((line, i) => (
         <div key={i} className={line.kind === "out" ? "whitespace-pre-wrap text-copy" : "text-fg"}>
-          {line.kind === "cmd" && (
-            <>
-              <span className="text-accent">erik@local</span> <span className="text-muted">~/portfolio $</span>{" "}
-            </>
-          )}
-          {line.text}
+          <motion.span style={{ opacity: textOpacity }}>
+            {line.kind === "cmd" && (
+              <>
+                <span className="text-accent">erik@local</span> <span className="text-muted">~/portfolio $</span>{" "}
+              </>
+            )}
+            {line.text}
+          </motion.span>
           {i === lines.length - 1 && (
             <span
+              data-cursor
               aria-hidden="true"
-              className="ml-1 inline-block h-[1.1em] w-[0.6em] translate-y-[0.18em] animate-blink bg-accent motion-reduce:animate-none"
+              className={twMerge(
+                "ml-1 inline-block h-[1.1em] w-[0.6em] translate-y-[0.18em] bg-accent",
+                !solidCursor && "animate-blink motion-reduce:animate-none",
+              )}
             />
           )}
         </div>

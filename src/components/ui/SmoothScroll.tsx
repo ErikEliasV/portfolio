@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import Lenis from "lenis";
+import { layoutTop } from "@/lib/layout-top";
 
 // Rolagem suave com Lenis. Com movimento reduzido, fica a rolagem nativa.
 export function SmoothScroll() {
@@ -32,9 +33,10 @@ export function SmoothScroll() {
       const target = document.getElementById(decodeURIComponent(hash.slice(1)));
       if (!target) return;
       event.preventDefault();
-      // Respeita o scroll-margin-top da seção (barra fixa no topo)
+      // Respeita o scroll-margin-top da seção (barra fixa no topo). Posição pelo layout:
+      // no fim da intro as seções estão deslocadas por transform.
       const margin = parseFloat(getComputedStyle(target).scrollMarginTop) || 0;
-      lenis.scrollTo(target, { offset: -margin });
+      lenis.scrollTo(layoutTop(target) - margin);
       history.pushState(null, "", hash);
     };
 
