@@ -93,7 +93,53 @@
       "title": "CONTACT",
       "label": "Let's talk",
       "blurb": "I'm open to opportunities as a Full Stack developer.",
-      "eof": "[ PROCESS COMPLETED ]"
+      "eof": "[ PROCESS COMPLETED ]",
+      "form": {
+        "heading": "Shall we talk?",
+        "intro": "Have a role or a project in mind? Tell me in a few lines. I reply within 2 business days.",
+        "copyEmail": "Copy email",
+        "copied": "Email copied",
+        "kind": "What is it about?",
+        "kinds": {
+          "job": "Job / opportunity",
+          "project": "Project / freelance",
+          "other": "Other"
+        },
+        "name": "Name",
+        "namePlaceholder": "Your name",
+        "email": "Email",
+        "emailPlaceholder": "you@company.com",
+        "company": "Company",
+        "companyHint": {
+          "job": "Where you work (optional)",
+          "project": "Business or project name (optional)",
+          "other": "(optional)"
+        },
+        "message": "Message",
+        "messageHint": {
+          "job": "Tell me about the role: stack, work model (remote or hybrid) and what the team does.",
+          "project": "What do you need? A website, a system, an app... and a deadline, if you have one.",
+          "other": "Go ahead :)"
+        },
+        "send": "Send",
+        "sending": "Sending...",
+        "result": {
+          "sentTitle": "Message sent!",
+          "sentBody": "Thanks, {name}. Your message reached my inbox and I'll reply to the address you left within 2 business days.",
+          "failedTitle": "Not sent",
+          "failedBody": {
+            "network": "Looks like the connection dropped. What you wrote is still in the form: check your internet and try again, or write to me directly at {email}.",
+            "rejected": "The sending service refused the message right now. What you wrote is still in the form: try again in a little while, or write to me directly at {email}."
+          },
+          "close": "Close",
+          "retry": "Try again"
+        },
+        "errors": {
+          "name": "Please enter your name.",
+          "email": "Please enter a valid email so I can reply.",
+          "message": "Please write your message."
+        }
+      }
     }
   },
   "NotFound": {

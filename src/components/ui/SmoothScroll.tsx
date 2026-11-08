@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import Lenis from "lenis";
 import { layoutTop } from "@/lib/layout-top";
+import { SCROLL_LOCK_EVENT, SCROLL_UNLOCK_EVENT } from "@/lib/scroll-lock";
 
 // Rolagem suave com Lenis. Com movimento reduzido, fica a rolagem nativa.
 export function SmoothScroll() {
@@ -53,15 +54,22 @@ export function SmoothScroll() {
       lenisRef.current = null;
     };
     const onMotionChange = () => (reduced.matches ? stop() : start());
+    // Modal aberto: a página de trás não rola
+    const onLock = () => lenisRef.current?.stop();
+    const onUnlock = () => lenisRef.current?.start();
 
     start();
     reduced.addEventListener("change", onMotionChange);
     document.addEventListener("click", onAnchorClick);
     window.addEventListener("popstate", onPopState);
+    window.addEventListener(SCROLL_LOCK_EVENT, onLock);
+    window.addEventListener(SCROLL_UNLOCK_EVENT, onUnlock);
     return () => {
       reduced.removeEventListener("change", onMotionChange);
       document.removeEventListener("click", onAnchorClick);
       window.removeEventListener("popstate", onPopState);
+      window.removeEventListener(SCROLL_LOCK_EVENT, onLock);
+      window.removeEventListener(SCROLL_UNLOCK_EVENT, onUnlock);
       stop();
     };
   }, []);
