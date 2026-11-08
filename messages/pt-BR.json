@@ -93,7 +93,53 @@
       "title": "CONTATO",
       "label": "Vamos conversar",
       "blurb": "Estou aberto a oportunidades como desenvolvedor Full Stack.",
-      "eof": "[ PROCESSO FINALIZADO ]"
+      "eof": "[ PROCESSO FINALIZADO ]",
+      "form": {
+        "heading": "Vamos conversar?",
+        "intro": "Tem uma vaga ou um projeto em mente? Me conte em poucas linhas. Respondo em até 2 dias úteis.",
+        "copyEmail": "Copiar email",
+        "copied": "Email copiado",
+        "kind": "Sobre o que é?",
+        "kinds": {
+          "job": "Vaga / oportunidade",
+          "project": "Projeto / serviço",
+          "other": "Outro"
+        },
+        "name": "Nome",
+        "namePlaceholder": "Seu nome",
+        "email": "Email",
+        "emailPlaceholder": "voce@empresa.com",
+        "company": "Empresa",
+        "companyHint": {
+          "job": "Onde você trabalha (opcional)",
+          "project": "Nome do negócio ou projeto (opcional)",
+          "other": "(opcional)"
+        },
+        "message": "Mensagem",
+        "messageHint": {
+          "job": "Conte um pouco sobre a vaga: stack, modelo (remoto ou híbrido) e o que o time faz.",
+          "project": "O que você precisa? Site, sistema, app... e um prazo, se tiver.",
+          "other": "Pode falar :)"
+        },
+        "send": "Enviar",
+        "sending": "Enviando...",
+        "result": {
+          "sentTitle": "Mensagem enviada!",
+          "sentBody": "Obrigado, {name}. Sua mensagem chegou no meu email e eu respondo no endereço que você deixou em até 2 dias úteis.",
+          "failedTitle": "Não foi enviada",
+          "failedBody": {
+            "network": "Parece que a conexão caiu. O que você escreveu continua no formulário: confira sua internet e tente de novo, ou me escreva direto em {email}.",
+            "rejected": "O serviço de envio recusou a mensagem agora. O que você escreveu continua no formulário: tente de novo daqui a pouco, ou me escreva direto em {email}."
+          },
+          "close": "Fechar",
+          "retry": "Tentar de novo"
+        },
+        "errors": {
+          "name": "Preencha seu nome.",
+          "email": "Informe um email válido para eu responder.",
+          "message": "Escreva sua mensagem."
+        }
+      }
     }
   },
   "NotFound": {

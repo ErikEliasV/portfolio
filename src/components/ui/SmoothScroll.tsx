@@ -3,6 +3,8 @@
 import { useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import Lenis from "lenis";
+import { layoutTop } from "@/lib/layout-top";
+import { SCROLL_LOCK_EVENT, SCROLL_UNLOCK_EVENT } from "@/lib/scroll-lock";
 
 // Rolagem suave com Lenis. Com movimento reduzido, fica a rolagem nativa.
 export function SmoothScroll() {
@@ -32,9 +34,10 @@ export function SmoothScroll() {
       const target = document.getElementById(decodeURIComponent(hash.slice(1)));
       if (!target) return;
       event.preventDefault();
-      // Respeita o scroll-margin-top da seção (barra fixa no topo)
+      // Respeita o scroll-margin-top da seção (barra fixa no topo). Posição pelo layout:
+      // no fim da intro as seções estão deslocadas por transform.
       const margin = parseFloat(getComputedStyle(target).scrollMarginTop) || 0;
-      lenis.scrollTo(target, { offset: -margin });
+      lenis.scrollTo(layoutTop(target) - margin);
       history.pushState(null, "", hash);
     };
 
@@ -51,15 +54,22 @@ export function SmoothScroll() {
       lenisRef.current = null;
     };
     const onMotionChange = () => (reduced.matches ? stop() : start());
+    // Modal aberto: a página de trás não rola
+    const onLock = () => lenisRef.current?.stop();
+    const onUnlock = () => lenisRef.current?.start();
 
     start();
     reduced.addEventListener("change", onMotionChange);
     document.addEventListener("click", onAnchorClick);
     window.addEventListener("popstate", onPopState);
+    window.addEventListener(SCROLL_LOCK_EVENT, onLock);
+    window.addEventListener(SCROLL_UNLOCK_EVENT, onUnlock);
     return () => {
       reduced.removeEventListener("change", onMotionChange);
       document.removeEventListener("click", onAnchorClick);
       window.removeEventListener("popstate", onPopState);
+      window.removeEventListener(SCROLL_LOCK_EVENT, onLock);
+      window.removeEventListener(SCROLL_UNLOCK_EVENT, onUnlock);
       stop();
     };
   }, []);

@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import type { MotionValue } from "framer-motion";
 import { bayerThresholds } from "@/lib/dither/bayer";
 import { hexToRgb01, PLANET_PALETTE, WAVE_PALETTE, wavePalette } from "@/lib/dither/palette";
+import { ditherPixelSize } from "@/lib/dither/pixel-size";
 import { shouldRenderFrame } from "@/lib/frame-throttle";
 import { getIntroState } from "@/lib/intro/timeline";
 import { FRAGMENT_SHADER, VERTEX_SHADER } from "./shaders";
@@ -115,8 +116,7 @@ export function DitherBackground({ introProgress, accent }: { introProgress?: Mo
       isMobile = mobileQuery.matches;
       viewport = { width: window.innerWidth, height: window.innerHeight };
       const planetDiameter = 2 * getIntroState(0, viewport, isMobile).planet.radius * viewport.height;
-      const [min, max] = isMobile ? [3, 8] : [4, 12];
-      const pixel = Math.min(max, Math.max(min, Math.round(planetDiameter / 70)));
+      const pixel = ditherPixelSize(planetDiameter, isMobile);
       canvas.width = Math.ceil(viewport.width / pixel);
       canvas.height = Math.ceil(viewport.height / pixel);
       gl.viewport(0, 0, canvas.width, canvas.height);
